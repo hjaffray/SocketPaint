@@ -23,4 +23,5 @@ public void paintComponent(Graphics g) {
                     obj.draw(g);
         }
 }
+
 }
