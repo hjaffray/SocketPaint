@@ -11,11 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class Painter extends JPanel{
+
+	private static final long serialVersionUID = 1L;
+	
+
 	public static void main(String[] args) {
 	
-		Painter test = new Painter();
-		
-		System.out.println("here");
+		new Painter();
 		
 		
 	}
@@ -34,7 +36,7 @@ public class Painter extends JPanel{
 		leftPanel.setLayout(new GridLayout(3, 1)); // 3 by 1
 		
 		JPanel topPanel = new JPanel();
-		topPanel.setLayout(new GridLayout(1, 2));
+		topPanel.setLayout(new GridLayout(1, 3)); //line, circle, and quit
 		
 		// add red paint button
 		JButton redPaint = new JButton();
@@ -57,10 +59,13 @@ public class Painter extends JPanel{
 		leftPanel.add(greenPaint);
 		
 		JButton line = new JButton("Line");
-		topPanel.add(line);
+		topPanel.add(line); //line button
 		
 		JButton circle = new JButton("Circle");
-		topPanel.add(circle);
+		topPanel.add(circle); //Circle button
+
+		JButton quit = new JButton("Quit");
+		topPanel.add(quit); //Quit button
 		
 		// add the panels to the overall panel, holder
 		// note that holder's layout should be set to BorderLayout
@@ -68,8 +73,6 @@ public class Painter extends JPanel{
 		holder.add(topPanel, BorderLayout.NORTH);
 		
 		
-		// use similar code to add topPanel buttons to the NORTH region
-		// omit the center panel for now
 		// after finishing the PaintingPanel class (described later) add a
 		// new object of this class as the CENTER panel
 		

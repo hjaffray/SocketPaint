@@ -3,6 +3,7 @@ package whiteBoard;
 import java.awt.Color;
 import java.awt.Graphics;
 
+
 public abstract class PaintingPrimitive{
 
 	Color c; //color variable

@@ -14,6 +14,7 @@ public class Server {
         boolean done = false;
         ArrayList<ClientHandler> painters = new ArrayList<ClientHandler>();
         Updater updater = new Updater(painters);
+        updater.run();
         try {
             ServerSocket ss = new ServerSocket(7000);
             while (!done) {
