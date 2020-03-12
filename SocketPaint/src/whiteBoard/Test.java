@@ -1,4 +1,5 @@
-package serverbs;
+package whiteBoard;
+
 import java.io.Serializable;
 
 public class Test implements Serializable { //class to test sending object over socket

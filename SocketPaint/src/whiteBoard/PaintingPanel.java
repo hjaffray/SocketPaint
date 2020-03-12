@@ -1,13 +1,13 @@
-package jaffrayhenry.du.edu;
+package whiteBoard;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-public class PaintingPanel<E> extends JPanel {
+public class PaintingPanel extends JPanel {
 
-	ArrayList<E> prims = new ArrayList<E>();
+	ArrayList<PaintingPrimitive> prims = new ArrayList<PaintingPrimitive>();
 	public PaintingPanel() {
 		
 		

@@ -1,16 +1,17 @@
-package jaffrayhenry.du.edu;
+package whiteBoard;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Color;
 
-public class Circle {
+public class Circle extends PaintingPrimitive{
 	
 	Point centerPoint;
 	Point radiusPoint;
 	
-	public Circle(Point a, Point b) {
+	public Circle(Point a, Point b, Color c) {
 		
-		super();
+		super(c);
 		centerPoint = a;
 		radiusPoint = b;
 	}

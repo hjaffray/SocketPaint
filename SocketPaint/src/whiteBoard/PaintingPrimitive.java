@@ -1,4 +1,4 @@
-package jaffrayhenry.du.edu;
+package whiteBoard;
 
 import java.awt.Color;
 import java.awt.Graphics;

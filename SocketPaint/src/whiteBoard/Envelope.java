@@ -1,4 +1,4 @@
-package serverbs;
+package whiteBoard;
 
 import java.io.Serializable;
 
