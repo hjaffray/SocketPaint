@@ -4,13 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-public class Painter extends JPanel{
+public class Painter extends JPanel implements ActionListener,MouseListener{
 
 	private static final long serialVersionUID = 1L;
 
@@ -24,7 +28,11 @@ public class Painter extends JPanel{
 		holder.setLayout(new BorderLayout());
 
 		//center panel
-		
+		center.setLayout(new GridLayout(1,1));
+		center.setBackground(Color.CYAN);
+		center.addMouseListener(this);
+	//	center.setActionCommand("draw");
+		holder.add(center, BorderLayout.CENTER);
 		// Create the paints 
 		
 		JPanel leftPanel = new JPanel();
@@ -35,6 +43,8 @@ public class Painter extends JPanel{
 		
 		// add red paint button
 		JButton redPaint = new JButton();
+		redPaint.addActionListener(this);
+		redPaint.setActionCommand("red");
 		redPaint.setBackground(Color.RED);
 		redPaint.setOpaque(true);
 		redPaint.setBorderPainted(false);
@@ -42,25 +52,33 @@ public class Painter extends JPanel{
 		
 		// similar for green and blue
 		JButton bluePaint = new JButton(); //blue button
+		bluePaint.addActionListener(this);
+		bluePaint.setActionCommand("blue");
 		bluePaint.setBackground(Color.BLUE);
 		bluePaint.setOpaque(true);
 		bluePaint.setBorderPainted(false);
 		leftPanel.add(bluePaint);
 		
 		JButton greenPaint = new JButton();  //green button
+		greenPaint.addActionListener(this);
+		greenPaint.setActionCommand("green");
 		greenPaint.setBackground(Color.GREEN);
 		greenPaint.setOpaque(true);
 		greenPaint.setBorderPainted(false);
 		leftPanel.add(greenPaint);
 		
 		JButton line = new JButton("Line");
+		line.addActionListener(this);
+		line.setActionCommand("line");
 		topPanel.add(line); //line button
 		
 		JButton circle = new JButton("Circle");
+		circle.addActionListener(this);
+		circle.setActionCommand("circle");
 		topPanel.add(circle); //Circle button
-
-		JButton quit = new JButton("Quit");
-		topPanel.add(quit); //Quit button
+//
+//		JButton quit = new JButton("Quit");
+//		topPanel.add(quit); //Quit button
 		
 		// add the panels to the overall panel, holder
 		// note that holder's layout should be set to BorderLayout
@@ -75,19 +93,59 @@ public class Painter extends JPanel{
 		
 		// Lastly, connect the holder to the JFrame
 		main.setContentPane(holder);
-		
-		// And make it visible to layout all the components on the screen
 		main.setVisible(true);
+		while(true) {
+		
+		
+		
+		
+		}
 	}
 
-	public void paintComponent(Graphics g) {
-		
-	
-	}
 	public static void main(String[] args) {
 	
-		new Painter();
+		Painter test = new Painter();
 		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand() == "red") {
+			
+		} else if(e.getActionCommand() == "green") {
+			
+		} else if(e.getActionCommand() == "blue") {
+			
+		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }
