@@ -13,22 +13,17 @@ import javax.swing.WindowConstants;
 public class Painter extends JPanel{
 
 	private static final long serialVersionUID = 1L;
-	
-
-	public static void main(String[] args) {
-	
-		new Painter();
-		
-		
-	}
 
 	public Painter(){
 		JFrame main = new JFrame();
 		JPanel holder = new JPanel();
+		JPanel center = new PaintingPanel();
 		
 		main.setSize(500,500);
 		main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		holder.setLayout(new BorderLayout());
+
+		//center panel
 		
 		// Create the paints 
 		
@@ -88,5 +83,11 @@ public class Painter extends JPanel{
 	public void paintComponent(Graphics g) {
 		
 	
+	}
+	public static void main(String[] args) {
+	
+		new Painter();
+		
+		
 	}
 }
