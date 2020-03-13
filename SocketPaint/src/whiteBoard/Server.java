@@ -88,10 +88,9 @@ class ClientHandler extends Thread {
                             "Type Exit to terminate connection."); 
                 
                 // receive the answer from client 
-                var received = (Test) ois.readObject();
+                Envelope received = (Envelope) ois.readObject();
                 
-                if(received.equals("Exit")) 
-                {  
+                if(received.getCtg() == 2 && received.stat == 1) {  //update for the correct values, those are just a guess
                     System.out.println("Client " + this.s + " sends exit..."); 
                     System.out.println("Closing this connection."); 
                     this.s.close(); 

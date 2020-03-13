@@ -24,7 +24,7 @@ public class PaintingPanel extends JPanel {
         super.paintComponent(g);
 
         for(PaintingPrimitive obj : prims) {
-            
+
             obj.draw(g);
         }
     }

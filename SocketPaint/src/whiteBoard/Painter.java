@@ -15,13 +15,6 @@ public class Painter extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 
-	public static void main(String[] args) {
-	
-		new Painter();
-		
-		
-	}
-
 	public Painter(){
 		JFrame main = new JFrame();
 		JPanel holder = new JPanel();
@@ -66,11 +59,16 @@ public class Painter extends JPanel{
 
 		JButton quit = new JButton("Quit");
 		topPanel.add(quit); //Quit button
+
+		PaintingPanel board = new PaintingPanel();
+
 		
 		// add the panels to the overall panel, holder
 		// note that holder's layout should be set to BorderLayout
 		holder.add(leftPanel, BorderLayout.WEST);
 		holder.add(topPanel, BorderLayout.NORTH);
+		holder.add(board, BorderLayout.CENTER);
+
 		
 		
 		// after finishing the PaintingPanel class (described later) add a
@@ -88,5 +86,12 @@ public class Painter extends JPanel{
 	public void paintComponent(Graphics g) {
 		
 	
+	}
+
+	public static void main(String[] args) {
+	
+		new Painter();
+		
+		
 	}
 }
