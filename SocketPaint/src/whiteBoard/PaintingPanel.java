@@ -1,5 +1,4 @@
 package whiteBoard;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -28,6 +27,8 @@ public class PaintingPanel extends JPanel {
         for(PaintingPrimitive obj : prims) {
             
             obj.draw(g);
+            System.out.println("drew an object");
         }
     }
+
 }
