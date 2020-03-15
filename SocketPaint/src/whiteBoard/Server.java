@@ -1,6 +1,7 @@
 package whiteBoard;
 
 import java.io.IOException;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -26,10 +27,15 @@ public class Server {
                 ClientHandler t = new ClientHandler(s, ois, oos);
                 t.start();
                 painters.add(t);
+                
+                int input = (int)ois.readObject();
+                int output;
+                Envelope env = new Envelope(input);
+                
             }
 
             ss.close();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
