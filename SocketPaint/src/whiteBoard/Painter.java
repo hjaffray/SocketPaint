@@ -2,6 +2,7 @@ package whiteBoard;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +11,10 @@ import java.awt.event.MouseListener;
 import java.awt.Point;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
 public class Painter extends JPanel implements ActionListener,MouseListener{
@@ -20,9 +24,11 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 	private Point p2;
 	private static final long serialVersionUID = 1L;
 	PaintingPanel center;
+	private String chats;
 
 	public Painter(){
 		Context context = new Context();
+//		Graphics cont = new Graphics();
 		shapeType = 1;
 		p1 = new Point();
 		p2 = new Point();
@@ -34,6 +40,8 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		main.setSize(500,500);
 		main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		holder.setLayout(new BorderLayout());
+		String chatName = JOptionPane.showInputDialog("Enter you name");
+		JLabel jl = new JLabel(chatName);
 
 		//center panel
 		center.setLayout(new GridLayout(1,1));
@@ -42,6 +50,17 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		//center.setActionCommand("draw");
 		holder.add(center, BorderLayout.CENTER);
 		// Create the paints 
+		
+		JPanel bottom = new JPanel();
+		bottom.setLayout(new GridLayout(2,2));
+		JTextArea chat = new JTextArea();
+		JButton chatButton = new JButton("Chat");
+		chatButton.addActionListener(this);
+		chatButton.setActionCommand("chat");
+		bottom.add(jl);
+		bottom.add(chatButton);
+		bottom.add(chat);
+		
 		
 		JPanel leftPanel = new JPanel();
 		leftPanel.setLayout(new GridLayout(3, 1)); // 3 by 1
@@ -84,7 +103,7 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		circle.addActionListener(this);
 		circle.setActionCommand("circle");
 		topPanel.add(circle); //Circle button
-//
+
 		JButton quit = new JButton("Quit");
 		quit.addActionListener(this);
 		quit.setActionCommand("quit");
@@ -94,7 +113,7 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		// note that holder's layout should be set to BorderLayout
 		holder.add(leftPanel, BorderLayout.WEST);
 		holder.add(topPanel, BorderLayout.NORTH);
-		
+		holder.add(bottom, BorderLayout.SOUTH);
 		
 		// after finishing the PaintingPanel class (described later) add a
 		// new object of this class as the CENTER panel
@@ -103,9 +122,10 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		
 		// Lastly, connect the holder to the JFrame
 		main.setContentPane(holder);
+		//main.setContentPane(bottom);
 		main.setVisible(true);
 		while(true) {
-			
+		
 			center.repaint();
 			holder.add(center, BorderLayout.CENTER);
 		
@@ -118,16 +138,20 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 	
 		new Painter();
 		
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand() == "red") {
 			c = Color.red;
+			System.out.println("red");
 		} else if(e.getActionCommand() == "green") {
 			c = Color.green;
+			System.out.println("green");
 		} else if(e.getActionCommand() == "blue") {
 			c = Color.blue;
+			System.out.println("blue");
 		} else if (e.getActionCommand() == "quit") {
 			System.exit(0);
 		} else if (e.getActionCommand() == "line") {
@@ -136,6 +160,8 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		} else if (e.getActionCommand() == "circle") {
 			shapeType = 0;
 			System.out.println("circle");
+		} else if(e.getActionCommand() == "chat") {
+	
 		}
 		System.out.println("action performed");
 	}
@@ -168,6 +194,7 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 					break;
 				case 1:
 					center.addPrimitive(new Line(p1, p2, c));
+					
 					break;
 			}
 		} 		
