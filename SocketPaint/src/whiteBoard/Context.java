@@ -12,7 +12,10 @@ import java.text.AttributedCharacterIterator;
 
 public class Context extends Graphics {
     Color c;
-    
+    public Context() {
+
+
+    }
 
     @Override
     public Graphics create() {

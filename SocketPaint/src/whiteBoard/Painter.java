@@ -106,7 +106,7 @@ public class Painter extends JPanel implements ActionListener,MouseListener{
 		main.setVisible(true);
 		while(true) {
 			
-			center.paintComponents(context);
+			center.repaint();
 			holder.add(center, BorderLayout.CENTER);
 		
 		
